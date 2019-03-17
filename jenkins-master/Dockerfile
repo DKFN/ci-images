@@ -11,6 +11,8 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
 RUN apt -y install git vim build-essential nodejs valgrind cmake gcc default-jre default-jdk zip jq
 
 RUN npm i newman -g
+RUN npm i -g @oclif/dev-cli
+RUN npm i -g npx
 
 RUN apt-get update -qq \
     && apt-get install -qqy apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -23,5 +25,5 @@ RUN apt-get update  -qq \
     && apt-get install docker-ce=17.12.1~ce-0~debian -y
 RUN usermod -aG docker jenkins
 
-RUN wget "http://cdn.infra.tetel.in/bunnycdncli/nightly/bnycdn_0.0.2-1_amd64.deb"; dpkg -i bnycdn_0.0.2-1_amd64.deb
+RUN wget "http://cdn.infra.tetel.in/bunnycdncli/nightly/bnycdn_0.0.3-1_amd64.deb"; dpkg -i bnycdn_0.0.3-1_amd64.deb
 
